@@ -15,6 +15,7 @@ import {nutritionItemFeatureKey} from './store/reducers/nutrition-item.reducer';
 import {reducers} from './store/reducers';
 import {effects} from './store/effects';
 import {ResourceModule} from '@ngx-resource/core';
+import {NutritionItemComponent} from './components/nutrition-item/nutrition-item.component';
 
 @NgModule({
     imports: [
@@ -28,7 +29,7 @@ import {ResourceModule} from '@ngx-resource/core';
        StoreModule.forFeature(nutritionItemFeatureKey, reducers),
        EffectsModule.forFeature(effects),
     ],
-    declarations: [HomePage, ScanComponent, SearchComponent, SearchFormComponent],
+    declarations: [HomePage, ScanComponent, SearchComponent, SearchFormComponent, NutritionItemComponent],
     providers: []
 })
 export class HomeModule {

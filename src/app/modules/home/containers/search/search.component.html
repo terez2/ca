@@ -14,30 +14,10 @@
 <ion-content>
 
     <ion-card-content>
-        <app-search-form [searchedItem]="item$ | async" (search)="search($event)"></app-search-form>
+        <app-search-form (search)="search($event)"></app-search-form>
     </ion-card-content>
 
-    <ion-card *ngIf="(item$ | async) as item">
-        <ng-container *ngIf="(item$ | async)?.status === 1">
-            <ion-item *ngIf="item && item.product && item.product['product_name'] as productName">
+   <app-nutrition-item [item]="item$ | async">
 
-                <ion-label>
-                    {{productName}}
-                </ion-label>
-                <ion-button fill="outline" slot="end">View</ion-button>
-            </ion-item>
-
-            <ion-card-content *ngIf="item && item.product && item.product['nutriments'] as nutriments">
-                {{nutriments['energy-kcal_100g'] + ' kcal'}}
-            </ion-card-content>
-        </ng-container>
-
-
-        <ion-item *ngIf="(item$ | async)?.status === 0">
-            <ion-label>
-                Product not found
-            </ion-label>
-        </ion-item>
-
-    </ion-card>
+   </app-nutrition-item>
 </ion-content>

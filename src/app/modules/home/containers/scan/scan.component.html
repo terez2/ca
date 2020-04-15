@@ -11,6 +11,8 @@
 
 <ion-content>
 
-    <zxing-scanner class="scanner" (scanComplete)="scanSuccessHandler($event)"></zxing-scanner>
+    <zxing-scanner *ngIf="!isMobileOrTablet" #scanner [formats]="['UPC_E', 'UPC_A']" class="small-video" (scanSuccess)="scanSuccessHandler($event)"></zxing-scanner>
+
+    <!-- todo: barcode scanner for phone -->
 
 </ion-content>

@@ -2,10 +2,14 @@
   <ng-container *ngIf="item?.status === 1">
     <ion-item *ngIf="item && item.product && item.product['product_name'] as productName">
 
+      <ion-thumbnail *ngIf="item.product['image_small_url']" slot="start">
+        <ion-img [src]="item.product['image_small_url']"></ion-img>
+      </ion-thumbnail>
+
       <ion-label>
         {{productName}}
       </ion-label>
-      <ion-button fill="outline" slot="end">View</ion-button>
+      <ion-button fill="outline" slot="end" (click)="this.viewActivity.emit()">Needed activity</ion-button>
     </ion-item>
 
     <ion-card-content *ngIf="item && item.product && item.product['nutriments'] as nutriments">

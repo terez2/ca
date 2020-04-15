@@ -29,13 +29,14 @@ export class PhotoService {
         });
     }
 
-    scan() {
+    getBarcode(): string {
         this.barcodeScanner.scan().then(barcodeData => {
-            console.log('Barcode data', barcodeData);
+            return barcodeData.text;
         }).catch(err => {
             console.log('Error', err);
             console.log('Device', this.device);
         });
+        return 'Error';
     }
 
 

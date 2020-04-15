@@ -14,10 +14,9 @@
 <ion-content>
 
     <ion-card-content>
-        <app-search-form (search)="search($event)"></app-search-form>
+        <app-search-form (search)="search($event)" [loading]="loading$ | async"></app-search-form>
     </ion-card-content>
 
-   <app-nutrition-item [item]="item$ | async">
-
-   </app-nutrition-item>
+    <!-- todo: more -->
+   <app-nutrition-item [item]="item$ | async" (viewActivity)="presentModal()"></app-nutrition-item>
 </ion-content>

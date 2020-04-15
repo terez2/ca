@@ -6,10 +6,12 @@ export const nutritionItemFeatureKey = 'nutritionItem';
 
 export interface NutritionItemState {
     item: NutritionItemResponse;
+    loading: boolean;
 }
 
 export const initialState: NutritionItemState = {
-    item: undefined
+    item: undefined,
+    loading: false,
 };
 
 const _nutritionItemReducer = createReducer(
@@ -26,11 +28,13 @@ export function nutritionItemReducer(state: NutritionItemState | undefined, acti
 function loadSuccess(state: NutritionItemState, data: NutritionItemResponse): NutritionItemState {
     console.log('load success', {
         ...state,
-        item: data
+        item: data,
+        loading: false,
     });
     return {
         ...state,
-        item: data
+        item: data,
+        loading: false,
     };
 }
 
@@ -38,12 +42,15 @@ function loadFail(state: NutritionItemState, error): NutritionItemState {
     console.log('load fail', error, state);
     return {
         ...state,
+        loading: false,
     };
 }
+
 function load(state: NutritionItemState): NutritionItemState {
-    console.log('load', state)
+    console.log('load', state);
     return {
         ...state,
+        loading: true,
     };
 }
 
@@ -52,4 +59,4 @@ export const getNutritionItem = (state: NutritionItemState) => {
     console.log(state);
     console.log(state.item);
     return state.item;
-}
+};

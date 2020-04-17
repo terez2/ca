@@ -11,8 +11,10 @@ export class SearchFormComponent implements OnInit {
   form: FormGroup;
 
   @Output() search: EventEmitter<NutritionForm> = new EventEmitter<NutritionForm>();
+  @Output() showScanner: EventEmitter<void> = new EventEmitter<void>();
   @Input() searchedItem: any;
   @Input() loading: boolean;
+  @Input() isDesktop: boolean;
 
   constructor(private fb: FormBuilder) {
     this.createForm();

@@ -1,6 +1,5 @@
-import {Component, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DeviceDetectorService} from 'ngx-device-detector';
-import {ZXingScannerComponent} from '@zxing/ngx-scanner';
 import {NutritionItemState} from '../../store/reducers/nutrition-item.reducer';
 import {Store} from '@ngrx/store';
 import {getNutritionItemLoadingSelector, getNutritionItemSelector} from '../../store/selectors/nutrition-item.selectors';
@@ -21,16 +20,16 @@ export class ScanComponent implements OnInit {
     item$: Observable<NutritionItemResponse>;
     barcode: string;
     isModalClosed = true;
-    isMobileOrTablet = true;
+    isDesktop = true;
     loading$: Observable<boolean>;
 
     constructor(private deviceService: DeviceDetectorService, private barcodeScanner: BarcodeScanner, private store: Store<NutritionItemState>, private modalController: ModalController) {
-        this.isMobileOrTablet = this.deviceService.isMobile() || this.deviceService.isTablet();
+        this.isDesktop = this.deviceService.isDesktop();
 
         this.item$ = this.store.select(getNutritionItemSelector);
         this.item$.subscribe(value => {
             console.log('subscribe', value);
-            if (value && this.isModalClosed && !this.isMobileOrTablet) { // todo: should found
+            if (value && this.isModalClosed && this.isDesktop) { // todo: should found
                 this.presentModal();
             }
         });
@@ -41,7 +40,7 @@ export class ScanComponent implements OnInit {
     }
 
     scanSuccessHandler(code: string) {
-        if (!this.isMobileOrTablet) {
+        if (this.isDesktop) {
             this.store.dispatch(loadNutritionItem({barcode: code}));
         }
     }

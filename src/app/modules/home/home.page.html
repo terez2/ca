@@ -1,4 +1,6 @@
-<ion-tabs>
+<ion-router-outlet *ngIf="isDesktop"></ion-router-outlet>
+
+<ion-tabs *ngIf="!isDesktop" >
 
     <ion-tab-bar slot="bottom">
         <ion-tab-button tab="scan">
@@ -10,12 +12,6 @@
             <ion-icon name="search-outline"></ion-icon>
             <ion-label>Search</ion-label>
         </ion-tab-button>
-        <!--
-        <ion-tab-button tab="tab3">
-            <ion-icon name="square"></ion-icon>
-            <ion-label>Tab Three</ion-label>
-        </ion-tab-button>
-        -->
     </ion-tab-bar>
 
 </ion-tabs>

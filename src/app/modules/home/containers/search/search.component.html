@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="primary">
+        <!--
+       <ion-buttons slot="start">
+         <ion-menu-button></ion-menu-button>
+       </ion-buttons>
+       -->
+        <ion-title>
+            Search
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card-content>
+        <app-search-form (search)="search($event)" [loading]="loading$ | async"></app-search-form>
+    </ion-card-content>
+
+    <!-- todo: more -->
+   <app-nutrition-item [item]="item$ | async" (viewActivity)="presentModal()"></app-nutrition-item>
+</ion-content>

@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            Scanner
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="!isMobileOrTablet">
+
+    <zxing-scanner [formats]="['UPC_E', 'UPC_A']" class="small-video"
+                   (scanSuccess)="scanSuccessHandler($event)"></zxing-scanner>
+</ion-content>
+
+<ion-content *ngIf="isMobileOrTablet">
+    <ion-button class="button-bottom" *ngIf="!(loading$ | async)" (click)="scanOnDevice()">
+        <ion-label>Scan</ion-label>
+    </ion-button>
+
+    <ion-spinner class="button-bottom" *ngIf="(loading$ | async)" name="dots"></ion-spinner>
+
+    <app-nutrition-item [item]="item$ | async" (viewActivity)="presentModal()"></app-nutrition-item>
+</ion-content>
+

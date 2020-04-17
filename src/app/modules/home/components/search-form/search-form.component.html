@@ -1,0 +1,19 @@
+<form [formGroup]="form" (ngSubmit)="search.emit(form.value)">
+
+    <ion-item>
+        <ion-label position="floating">Barcode numbers</ion-label>
+        <ion-input formControlName="barcode" type="number"></ion-input>
+    </ion-item>
+
+    <div class="ion-margin" style="text-align: center">
+        <ion-button *ngIf="!loading" type="submit">
+            <ion-label>Search it!</ion-label>
+        </ion-button>
+
+        <ion-spinner *ngIf="loading" class="center" name="dots"></ion-spinner>
+    </div>
+    <!-- todo: loading -->
+
+</form>
+
+<!--<ion-searchbar></ion-searchbar>-->

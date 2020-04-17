@@ -24,3 +24,14 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.center {
+  margin: auto;
+}
+
+.button-bottom {
+  position: fixed;
+  left: 0;
+  bottom: 50px;
+  right: 0;
+}

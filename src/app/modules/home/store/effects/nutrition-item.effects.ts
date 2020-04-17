@@ -14,11 +14,18 @@ export class NutritionItemEffects {
         this.actions$.pipe(
             ofType(loadNutritionItem),
             switchMap(({barcode}) => {
+                console.log('effect');
+                console.log(barcode);
                 return this.nutritionService.get(barcode).pipe(
                     map(response => loadNutritionItemSuccess({data: response})),
-                    catchError(error => of(loadNutritionItemFail({error})))
+                    catchError(error => {
+                        console.log('error effect');
+                        console.log(error);
+                        return of(loadNutritionItemFail({error}));
+                    })
                 );
             })
         )
     );
+
 }

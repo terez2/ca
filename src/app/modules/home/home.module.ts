@@ -17,6 +17,8 @@ import {effects} from './store/effects';
 import {ResourceModule} from '@ngx-resource/core';
 import {NutritionItemComponent} from './components/nutrition-item/nutrition-item.component';
 import {ActivityComponent} from './components/activity/activity.component';
+import {Network} from '@ionic-native/network/ngx';
+import {NetworkComponent} from './components/network/network.component';
 
 @NgModule({
     imports: [
@@ -27,11 +29,11 @@ import {ActivityComponent} from './components/activity/activity.component';
         HomeRoutingModule,
         ZXingScannerModule,
         ResourceModule.forChild(),
-       StoreModule.forFeature(nutritionItemFeatureKey, reducers),
-       EffectsModule.forFeature(effects),
+        StoreModule.forFeature(nutritionItemFeatureKey, reducers),
+        EffectsModule.forFeature(effects),
     ],
-    declarations: [HomePage, ScanComponent, SearchComponent, SearchFormComponent, NutritionItemComponent, ActivityComponent],
-    providers: [],
+    declarations: [HomePage, ScanComponent, SearchComponent, SearchFormComponent, NutritionItemComponent, ActivityComponent, NetworkComponent],
+    providers: [Network],
     entryComponents: [
         ActivityComponent
     ]

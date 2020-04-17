@@ -9,10 +9,19 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="!isMobileOrTablet">
 
-    <zxing-scanner *ngIf="!isMobileOrTablet" #scanner [formats]="['UPC_E', 'UPC_A']" class="small-video" (scanSuccess)="scanSuccessHandler($event)"></zxing-scanner>
-
-    <!-- todo: barcode scanner for phone -->
-
+    <zxing-scanner [formats]="['UPC_E', 'UPC_A']" class="small-video"
+                   (scanSuccess)="scanSuccessHandler($event)"></zxing-scanner>
 </ion-content>
+
+<ion-content *ngIf="isMobileOrTablet">
+    <ion-button class="button-bottom" *ngIf="!(loading$ | async)" (click)="scanOnDevice()">
+        <ion-label>Scan</ion-label>
+    </ion-button>
+
+    <ion-spinner class="button-bottom" *ngIf="(loading$ | async)" name="dots"></ion-spinner>
+
+    <app-nutrition-item [item]="item$ | async" (viewActivity)="presentModal()"></app-nutrition-item>
+</ion-content>
+

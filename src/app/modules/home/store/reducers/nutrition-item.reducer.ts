@@ -39,10 +39,13 @@ function loadSuccess(state: NutritionItemState, data: NutritionItemResponse): Nu
 }
 
 function loadFail(state: NutritionItemState, error): NutritionItemState {
-    console.log('load fail', error, state);
+    console.log('load fail');
+    console.log(error);
+    console.log('state');
     return {
         ...state,
         loading: false,
+        item: undefined
     };
 }
 

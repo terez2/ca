@@ -7,8 +7,8 @@ export function isNotUndefinedOrEmpty(text: string) {
 export function isNotEmptySearchItem(searchItem: NutritionForm): boolean {
     let result = false;
     if (searchItem) {
-        Object.keys(searchItem).forEach( key => {
-            result = result || isNotUndefinedOrEmpty(searchItem[key]);
+        Object.keys(searchItem).forEach(key => {
+                result = result || isNotUndefinedOrEmpty(searchItem[key]);
             }
         );
         return result;

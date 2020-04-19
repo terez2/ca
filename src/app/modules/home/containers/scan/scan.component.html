@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
     <ion-toolbar color="primary">
-        <ion-button fill="clear" slot="start" (click)="back()">
-            <ion-icon color="light" slot="icon-only" name="arrow-back-outline"(click)="back()"></ion-icon>
+        <ion-button *ngIf="isDesktop" fill="clear" slot="start" (click)="back()">
+            <ion-icon color="light" slot="icon-only" name="arrow-back-outline" (click)="back()"></ion-icon>
         </ion-button>
         <ion-title>
             Scanner

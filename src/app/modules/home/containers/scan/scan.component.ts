@@ -36,7 +36,7 @@ export class ScanComponent implements OnInit {
         this.isDesktop = this.deviceService.isDesktop();
 
         router.events.subscribe((val) => {
-            if (val instanceof NavigationEnd && val.url === '/home/scan') {
+            if (val instanceof NavigationEnd && val.url === '/home/scan' && this.scanner) {
                 this.scanner.reset();
             }
         });
@@ -90,7 +90,9 @@ export class ScanComponent implements OnInit {
     }
 
     stopDesktopScanner() {
-        this.scanner.enable = false;
-        this.scanner = null;
+        if (this.scanner) {
+            this.scanner.enable = false;
+            this.scanner = null;
+        }
     }
 }

@@ -8,6 +8,8 @@ import {NutritionItemResponse} from '../../../../models/nutrition-item-response'
 import {NutritionItemState} from '../../store/reducers/nutrition-item.reducer';
 import {ModalController} from '@ionic/angular';
 import {ActivityComponent} from '../../components/activity/activity.component';
+import {Router} from '@angular/router';
+import {DeviceDetectorService} from 'ngx-device-detector';
 
 @Component({
     selector: 'app-search',
@@ -19,7 +21,12 @@ export class SearchComponent implements OnInit {
     item$: Observable<NutritionItemResponse>;
     loading$: Observable<boolean>;
 
-    constructor(private store: Store<NutritionItemState>, private modalController: ModalController) {
+    constructor(
+        private store: Store<NutritionItemState>,
+        private modalController: ModalController,
+        private router: Router,
+        private deviceService: DeviceDetectorService
+    ) {
         this.item$ = this.store.select(getNutritionItemSelector);
         this.loading$ = this.store.select(getNutritionItemLoadingSelector);
         this.item$.subscribe(a => {
@@ -48,5 +55,9 @@ export class SearchComponent implements OnInit {
         }
 
         // this.store.dispatch(loadNutritionItem({barcode: '8594404009520'}));
+    }
+
+    showScanner() {
+        this.router.navigate(['/home/scan']);
     }
 }

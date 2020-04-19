@@ -16,12 +16,10 @@
       {{nutriments['energy-kcal_100g'] + ' kcal'}}
     </ion-card-content>
   </ng-container>
-
-
-  <ion-item *ngIf="item?.status === 0">
-    <ion-label>
-      Product not found
-    </ion-label>
-  </ion-item>
-
 </ion-card>
+
+<ion-item lines="none" *ngIf="item?.status === 0">
+  <ion-label class="ion-text-center">
+    Sorry, product not found.
+  </ion-label>
+</ion-item>

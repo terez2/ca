@@ -12,8 +12,13 @@
                          [isDesktop]="deviceService.isDesktop()"></app-search-form>
     </ion-card-content>
 
+    <!--
     <app-nutrition-item *ngIf="!(loading$ | async)" [item]="item$ | async"
                         (viewActivity)="presentModal()"></app-nutrition-item>
+    -->
 
+    <app-item-detail>
+
+    </app-item-detail>
 </ion-content>
 

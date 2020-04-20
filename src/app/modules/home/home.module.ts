@@ -19,6 +19,8 @@ import {NutritionItemComponent} from './components/nutrition-item/nutrition-item
 import {ActivityComponent} from './components/activity/activity.component';
 import {Network} from '@ionic-native/network/ngx';
 import {NetworkComponent} from './components/network/network.component';
+import {ItemDetailComponent} from './components/item-detail/item-detail.component';
+import {ItemColComponent} from './components/item-col/item-col.component';
 
 @NgModule({
     imports: [
@@ -32,7 +34,17 @@ import {NetworkComponent} from './components/network/network.component';
         StoreModule.forFeature(nutritionItemFeatureKey, reducers),
         EffectsModule.forFeature(effects),
     ],
-    declarations: [HomePage, ScanComponent, SearchComponent, SearchFormComponent, NutritionItemComponent, ActivityComponent, NetworkComponent],
+    declarations: [
+        HomePage,
+        ScanComponent,
+        SearchComponent,
+        SearchFormComponent,
+        NutritionItemComponent,
+        ActivityComponent,
+        NetworkComponent,
+        ItemDetailComponent,
+        ItemColComponent
+    ],
     providers: [Network],
     entryComponents: [
         ActivityComponent

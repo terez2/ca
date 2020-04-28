@@ -2,12 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {loadNutritionItem} from '../../store/actions/nutrition-item.actions';
 import {Observable} from 'rxjs';
-import {getNutritionItemLoadingSelector, getNutritionItemSelector} from '../../store/selectors/nutrition-item.selectors';
+import {
+    getNutritionItemLoadedSelector,
+    getNutritionItemLoadingSelector,
+    getNutritionItemSelector
+} from '../../store/selectors/nutrition-item.selectors';
 import {NutritionForm} from '../../../../models/nutrition-form';
-import {NutritionItemResponse} from '../../../../models/nutrition-item-response';
+import {NutritionItem} from '../../../../models/nutrition-item';
 import {NutritionItemState} from '../../store/reducers/nutrition-item.reducer';
-import {ModalController} from '@ionic/angular';
-import {ActivityComponent} from '../../components/activity/activity.component';
 import {Router} from '@angular/router';
 import {DeviceDetectorService} from 'ngx-device-detector';
 
@@ -18,17 +20,18 @@ import {DeviceDetectorService} from 'ngx-device-detector';
 })
 export class SearchComponent implements OnInit {
 
-    item$: Observable<NutritionItemResponse>;
+    item$: Observable<NutritionItem>;
     loading$: Observable<boolean>;
+    loaded$: Observable<boolean>;
 
     constructor(
         private store: Store<NutritionItemState>,
-        private modalController: ModalController,
         private router: Router,
         private deviceService: DeviceDetectorService
     ) {
         this.item$ = this.store.select(getNutritionItemSelector);
         this.loading$ = this.store.select(getNutritionItemLoadingSelector);
+        this.loaded$ = this.store.select(getNutritionItemLoadedSelector);
         this.item$.subscribe(a => {
             console.log('search item$ change', a);
         });
@@ -36,17 +39,6 @@ export class SearchComponent implements OnInit {
     }
 
     ngOnInit() {
-    }
-
-    async presentModal() {
-        const modal = await this.modalController.create({
-            component: ActivityComponent,
-            componentProps: {
-                activityHours: '1',
-                activityType: 'running',
-            }
-        });
-        return await modal.present();
     }
 
     search(form: NutritionForm) {

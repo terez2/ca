@@ -3,13 +3,14 @@
         <ion-card-header>
             <ion-item class="display-flex">
 
-                <ion-img src="assets/icon/favicon.png"
+                <ion-img [src]=" imgSrc || 'assets/icon/favicon.png'"
                          class="ion-margin padding-10">
                 </ion-img>
 
                 <div class="titles">
                     <ion-card-title>{{name}}</ion-card-title>
                     <ion-card-subtitle class="ion-margin-top">{{calories}} kcal</ion-card-subtitle>
+                    <ion-card-subtitle [class]="getClass(calories)">{{getDifficulty(calories)}}</ion-card-subtitle>
                 </div>
             </ion-item>
         </ion-card-header>
@@ -17,41 +18,9 @@
 
         <ion-card-content>
             <ion-grid>
-                <ion-row>
-                    <ion-col>
-                        <app-item-col [time]="getActivityTimeNumber(1)" [id]="1"></app-item-col>
-                    </ion-col>
-                    <ion-col>
-                        <app-item-col [time]="getActivityTimeNumber(2)" [id]="2"></app-item-col>
-                    </ion-col>
-                    <ion-col>
-                        <app-item-col [time]="getActivityTimeNumber(3)" [id]="3"></app-item-col>
-                    </ion-col>
-                </ion-row>
-
-                <ion-row>
-                    <ion-col>
-                        <app-item-col [time]="getActivityTimeNumber(4)" [id]="4"></app-item-col>
-                    </ion-col>
-                    <ion-col>
-                        <app-item-col [time]="getActivityTimeNumber(5)" [id]="5"></app-item-col>
-                    </ion-col>
-                    <ion-col>
-                        <app-item-col [time]="getActivityTimeNumber(6)" [id]="6"></app-item-col>
-                    </ion-col>
-                </ion-row>
-
-                <ion-row>
-                    <ion-col>
-                        <app-item-col [time]="getActivityTimeNumber(7)" [id]="7"></app-item-col>
-                    </ion-col>
-                    <ion-col>
-                        <app-item-col [time]="getActivityTimeNumber(8)" [id]="8"></app-item-col>
-                    </ion-col>
-                    <ion-col>
-                        <app-item-col [time]="getActivityTimeNumber(9)" [id]="9"></app-item-col>
-                    </ion-col>
-                </ion-row>
+                <app-grid-row [activities]="activities | slice:0:3"></app-grid-row>
+                <app-grid-row [activities]="activities | slice:3:6"></app-grid-row>
+                <app-grid-row [activities]="activities | slice:6:9"></app-grid-row>
             </ion-grid>
 
         </ion-card-content>

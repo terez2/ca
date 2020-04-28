@@ -9,15 +9,16 @@ import {
 import {environment} from 'src/environments/environment';
 import {BaseResource} from './base-resource';
 import {BaseSecuredResource} from './base-secured-resource';
+import {NutritionItem} from '../models/nutrition-item';
 
 @Injectable({
     providedIn: 'root'
 })
 @ResourceParams({
-    url: environment.foodDatabaseUrl,
-    pathPrefix: '/product'
+    url: environment.apiUrl,
+    pathPrefix: '/items'
 })
-export class FoodNutritionResource extends BaseSecuredResource {
+export class FoodNutritionResource extends BaseResource {
     constructor(handler: ResourceHandler) {
         super(handler);
     }
@@ -26,6 +27,6 @@ export class FoodNutritionResource extends BaseSecuredResource {
         method: ResourceRequestMethod.Get,
         path: '/{!barcode}'
     })
-    getItem: IResourceMethodObservableStrict<undefined, undefined, { barcode: string }, any>;
+    getItem: IResourceMethodObservableStrict<undefined, undefined, { barcode: string }, NutritionItem>;
 
 }

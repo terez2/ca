@@ -18,3 +18,9 @@ export const getNutritionItemLoadingSelector = createSelector(
         return state.nutritionItem.loading;
     }
 );
+export const getNutritionItemLoadedSelector = createSelector(
+    getNutritionItemState,
+    (state: CoreModuleState) => {
+        return state.nutritionItem.loaded;
+    }
+);

@@ -1,24 +1,22 @@
-<ion-card *ngIf="item as item">
-  <ng-container *ngIf="item?.status === 1">
-    <ion-item *ngIf="item && item.product && item.product['product_name'] as productName">
+<ion-card *ngIf="item">
+    <ion-item>
 
-      <ion-thumbnail *ngIf="item.product['image_small_url']" slot="start">
-        <ion-img [src]="item.product['image_small_url']"></ion-img>
+      <ion-thumbnail *ngIf="item.image" slot="start">
+        <ion-img [src]="item.image"></ion-img>
       </ion-thumbnail>
 
       <ion-label>
-        {{productName}}
+        {{item.name}}
       </ion-label>
       <ion-button fill="outline" slot="end" (click)="this.viewActivity.emit()">Needed activity</ion-button>
     </ion-item>
 
-    <ion-card-content *ngIf="item && item.product && item.product['nutriments'] as nutriments">
-      {{nutriments['energy-kcal_100g'] + ' kcal'}}
+    <ion-card-content>
+      {{item.calories + ' kcal'}}
     </ion-card-content>
-  </ng-container>
 </ion-card>
 
-<ion-item lines="none" *ngIf="item?.status === 0">
+<ion-item lines="none" *ngIf="!item">
   <ion-label class="ion-text-center">
     Sorry, product not found.
   </ion-label>

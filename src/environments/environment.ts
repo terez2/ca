@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  foodDatabaseUrl: 'https://world.openfoodfacts.org/api/v0'
+  foodDatabaseUrl: 'https://world.openfoodfacts.org/api/v0',
+  apiUrl: 'http://localhost/api/v1',
 };
 
 /*

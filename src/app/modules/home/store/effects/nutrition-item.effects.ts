@@ -4,6 +4,8 @@ import {catchError, flatMap, map, switchMap} from 'rxjs/operators';
 import {of} from 'rxjs';
 import {FoodNutritionService} from '../../../../service/food-nutrition.service';
 import {loadNutritionItem, loadNutritionItemFail, loadNutritionItemSuccess} from '../actions/nutrition-item.actions';
+//import { Toast } from '@ionic-native/toast/ngx';
+//import {ToastrService} from 'ngx-toastr';
 
 @Injectable()
 export class NutritionItemEffects {
@@ -19,8 +21,8 @@ export class NutritionItemEffects {
                 return this.nutritionService.get(barcode).pipe(
                     map(response => loadNutritionItemSuccess({data: response})),
                     catchError(error => {
-                        console.log('error effect');
-                        console.log(error);
+                        //this.toast.show('Product not found.', '5000', 'center').subscribe(a => console.log(a)); // todo
+                        //this.toastr.error('Product not found.');
                         return of(loadNutritionItemFail({error}));
                     })
                 );

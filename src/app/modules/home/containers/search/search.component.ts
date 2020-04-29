@@ -23,6 +23,7 @@ export class SearchComponent implements OnInit {
     item$: Observable<NutritionItem>;
     loading$: Observable<boolean>;
     loaded$: Observable<boolean>;
+    isDesktop = true;
 
     constructor(
         private store: Store<NutritionItemState>,
@@ -32,6 +33,7 @@ export class SearchComponent implements OnInit {
         this.item$ = this.store.select(getNutritionItemSelector);
         this.loading$ = this.store.select(getNutritionItemLoadingSelector);
         this.loaded$ = this.store.select(getNutritionItemLoadedSelector);
+        this.isDesktop = this.deviceService.isDesktop();
     }
 
     ngOnInit() {

@@ -4,7 +4,7 @@ import {NutritionItemState} from '../../store/reducers/nutrition-item.reducer';
 import {Store} from '@ngrx/store';
 import {getNutritionItemLoadingSelector, getNutritionItemSelector} from '../../store/selectors/nutrition-item.selectors';
 import {NutritionItem} from '../../../../models/nutrition-item';
-import {Observable} from 'rxjs';
+import {fromEvent, Observable} from 'rxjs';
 import {loadNutritionItem} from '../../store/actions/nutrition-item.actions';
 import {BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
 import {NavigationEnd, Router} from '@angular/router';
@@ -16,6 +16,7 @@ import {ZXingScannerComponent} from '@zxing/ngx-scanner';
     styleUrls: ['./scan.component.scss'],
 })
 export class ScanComponent implements OnInit {
+// todo: permissions?
 
     @ViewChild('scanner', {static: false})
     scanner: ZXingScannerComponent;
@@ -32,19 +33,29 @@ export class ScanComponent implements OnInit {
         private router: Router,
     ) {
         this.isDesktop = this.deviceService.isDesktop();
+        this.initItemSelectors();
 
         router.events.subscribe((val) => {
-            if (val instanceof NavigationEnd && val.url === '/home/scan' && this.scanner) {
-                this.scanner.reset();
+            if (val instanceof NavigationEnd && val.url === '/home/scan') {
+                if (this.scanner && this.isDesktop) {
+                    this.scanner.reset();
+                }
+                if (!this.isDesktop) {
+                    this.scanOnDevice();
+                }
             }
         });
 
-        this.item$ = this.store.select(getNutritionItemSelector);
-        this.item$.subscribe(value => {
-            if (value && this.isModalClosed && this.isDesktop) { // todo: should found
-                //  this.presentModal();
-            }
+        const event = fromEvent(document, 'ionBackButton');
+        event.subscribe(async () => {
+            this.back();
+            // todo
         });
+
+    }
+
+    private initItemSelectors() {
+        this.item$ = this.store.select(getNutritionItemSelector);
         this.loading$ = this.store.select(getNutritionItemLoadingSelector);
     }
 
@@ -61,9 +72,11 @@ export class ScanComponent implements OnInit {
         this.barcodeScanner.scan().then(barcodeData => {
             if (barcodeData && barcodeData.text) {
                 this.store.dispatch(loadNutritionItem({barcode: barcodeData.text}));
+                this.back();
             }
         }).catch(err => {
             console.log('Error', err);
+            this.back();
         });
     }
 

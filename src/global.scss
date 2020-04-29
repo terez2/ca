@@ -49,22 +49,43 @@
   display: flex;
 }
 
-.padding-10{
+.padding-10 {
   padding: 10px;
 }
 
-.margin-15{
+.margin-15 {
   margin: 15px;
 }
 
-.hard{
+.hard {
   color: red;
 }
 
-.medium{
+.medium {
   color: yellow;
 }
 
-.easy{
+.easy {
   color: green;
 }
+
+ion-icon {
+  font-size: 25px;
+}
+
+ion-img {
+  width: 100px;
+  height: 100px;
+}
+
+ion-card {
+  width: 1000px;
+  margin-top: 40px;
+}
+
+.titles {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+

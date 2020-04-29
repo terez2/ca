@@ -21,7 +21,5 @@
     </ion-button>
 
     <ion-spinner class="button-bottom" *ngIf="(loading$ | async)" name="dots"></ion-spinner>
-
-    <app-nutrition-item [item]="item$ | async"></app-nutrition-item> <!--(viewActivity)="presentModal()"-->
 </ion-content>
 

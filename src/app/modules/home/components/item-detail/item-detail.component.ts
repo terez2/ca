@@ -18,18 +18,18 @@ export class ItemDetailComponent implements OnInit {
     ngOnInit() {
     }
 
-    getDifficulty(calories: number): string {
-        if (calories < 300) {
+    getDifficulty(): string {
+        if (this.calories < 300) {
             return 'EASY';
-        } else if (calories < 600) {
+        } else if (this.calories < 600) {
             return 'MEDIUM';
         } else {
             return 'HARD';
         }
     }
 
-    getClass(calories: number): string {
-        return this.getDifficulty(calories).toLocaleLowerCase();
+    getClass(): string {
+        return this.getDifficulty().toLocaleLowerCase();
     }
 
 }

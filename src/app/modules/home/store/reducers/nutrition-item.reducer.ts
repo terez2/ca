@@ -1,17 +1,19 @@
 import {Action, createReducer, on} from '@ngrx/store';
 import {loadNutritionItem, loadNutritionItemFail, loadNutritionItemSuccess} from '../actions/nutrition-item.actions';
-import {NutritionItemResponse} from '../../../../models/nutrition-item-response';
+import {NutritionItem} from '../../../../models/nutrition-item';
 
 export const nutritionItemFeatureKey = 'nutritionItem';
 
 export interface NutritionItemState {
-    item: NutritionItemResponse;
+    item: NutritionItem;
     loading: boolean;
+    loaded: boolean;
 }
 
 export const initialState: NutritionItemState = {
     item: undefined,
     loading: false,
+    loaded: false,
 };
 
 const _nutritionItemReducer = createReducer(
@@ -25,16 +27,18 @@ export function nutritionItemReducer(state: NutritionItemState | undefined, acti
     return _nutritionItemReducer(state, action);
 }
 
-function loadSuccess(state: NutritionItemState, data: NutritionItemResponse): NutritionItemState {
+function loadSuccess(state: NutritionItemState, data: NutritionItem): NutritionItemState {
     console.log('load success', {
         ...state,
         item: data,
         loading: false,
+        loaded: true,
     });
     return {
         ...state,
         item: data,
         loading: false,
+        loaded: true,
     };
 }
 

@@ -1,0 +1,28 @@
+<div class="center-flex">
+    <ion-card class="ion-padding ion-margin">
+        <ion-card-header>
+            <ion-item class="display-flex">
+
+                <ion-img [src]=" imgSrc || 'assets/icon/favicon.png'"
+                         class="ion-margin padding-10">
+                </ion-img>
+
+                <div class="titles">
+                    <ion-card-title>{{name}}</ion-card-title>
+                    <ion-card-subtitle class="ion-margin-top">{{calories}} kcal</ion-card-subtitle>
+                    <ion-card-subtitle [class]="getClass()">{{getDifficulty()}}</ion-card-subtitle>
+                </div>
+            </ion-item>
+        </ion-card-header>
+
+
+        <ion-card-content>
+            <ion-grid>
+                <app-grid-row [activities]="activities | slice:0:3"></app-grid-row>
+                <app-grid-row [activities]="activities | slice:3:6"></app-grid-row>
+                <app-grid-row [activities]="activities | slice:6:9"></app-grid-row>
+            </ion-grid>
+
+        </ion-card-content>
+    </ion-card>
+</div>

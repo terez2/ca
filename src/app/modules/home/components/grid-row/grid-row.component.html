@@ -1,0 +1,10 @@
+<ion-row>
+    <ion-col *ngFor="let activity of activities">
+        <ion-item lines="none">
+            <div>
+                <ion-icon size="large" class="margin-15" [src]="getIcon(activity.name)"></ion-icon>
+                <ion-label>{{convertTime(activity.time)}}</ion-label>
+            </div>
+        </ion-item>
+    </ion-col>
+</ion-row>

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {NutritionItemResponse} from '../../../../models/nutrition-item-response';
+import {NutritionItem} from '../../../../models/nutrition-item';
 
 @Component({
   selector: 'app-nutrition-item',
@@ -9,7 +9,7 @@ import {NutritionItemResponse} from '../../../../models/nutrition-item-response'
 
 // 8594404009520
 export class NutritionItemComponent implements OnInit {
-  @Input() item: NutritionItemResponse;
+  @Input() item: NutritionItem;
   @Output() viewActivity: EventEmitter<void> = new EventEmitter<void>();
 
   constructor() { }

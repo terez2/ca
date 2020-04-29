@@ -3,7 +3,7 @@ import {DeviceDetectorService} from 'ngx-device-detector';
 import {NutritionItemState} from '../../store/reducers/nutrition-item.reducer';
 import {Store} from '@ngrx/store';
 import {getNutritionItemLoadingSelector, getNutritionItemSelector} from '../../store/selectors/nutrition-item.selectors';
-import {NutritionItemResponse} from '../../../../models/nutrition-item-response';
+import {NutritionItem} from '../../../../models/nutrition-item';
 import {Observable} from 'rxjs';
 import {loadNutritionItem} from '../../store/actions/nutrition-item.actions';
 import {ActivityComponent} from '../../components/activity/activity.component';
@@ -22,7 +22,7 @@ export class ScanComponent implements OnInit {
     @ViewChild('scanner', {static: false})
     scanner: ZXingScannerComponent;
 
-    item$: Observable<NutritionItemResponse>;
+    item$: Observable<NutritionItem>;
     isModalClosed = true;
     isDesktop = true;
     loading$: Observable<boolean>;
@@ -30,7 +30,7 @@ export class ScanComponent implements OnInit {
     constructor(
         private deviceService: DeviceDetectorService,
         private barcodeScanner: BarcodeScanner,
-        private store: Store<NutritionItemState>, private modalController: ModalController,
+        private store: Store<NutritionItemState>,
         private router: Router,
     ) {
         this.isDesktop = this.deviceService.isDesktop();
@@ -44,7 +44,7 @@ export class ScanComponent implements OnInit {
         this.item$ = this.store.select(getNutritionItemSelector);
         this.item$.subscribe(value => {
             if (value && this.isModalClosed && this.isDesktop) { // todo: should found
-                this.presentModal();
+                //  this.presentModal();
             }
         });
         this.loading$ = this.store.select(getNutritionItemLoadingSelector);
@@ -69,20 +69,6 @@ export class ScanComponent implements OnInit {
         });
     }
 
-    async presentModal() {
-        const modal = await this.modalController.create({
-            component: ActivityComponent,
-            componentProps: {
-                activityHours: '1',
-                activityType: 'running',
-            }
-        });
-        modal.onDidDismiss().then(_ => {
-            this.isModalClosed = true;
-        });
-        this.isModalClosed = false;
-        return await modal.present();
-    }
 
     back() {
         this.stopDesktopScanner();

@@ -1,12 +1,12 @@
-import { TestBed } from '@angular/core/testing';
-
-import { FoodNutritionService } from './food-nutrition.service';
+import {FoodNutritionService} from './food-nutrition.service';
+import {checkServiceCalls} from '../global/utils/test-service.spec';
+import {setupService} from '../global/test-contexts/test-service-context.spec';
+import {FoodNutritionResource} from '../resource/food-nutrition-resource';
 
 describe('FoodNutritionService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+    setupService();
 
-  it('should be created', () => {
-    const service: FoodNutritionService = TestBed.get(FoodNutritionService);
-    expect(service).toBeTruthy();
-  });
+    checkServiceCalls<FoodNutritionService, FoodNutritionResource>(FoodNutritionService, FoodNutritionResource, [
+        {serviceMethodName: 'get', resourceMethodName: 'getItem', dataForService: [{id: '0'}]}
+    ]);
 });

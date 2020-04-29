@@ -1,5 +1,5 @@
 import {createAction, props} from '@ngrx/store';
-import {NutritionItemResponse} from '../../../../models/nutrition-item-response';
+import {NutritionItem} from '../../../../models/nutrition-item';
 
 export enum NutritionItemActions {
     load = '[NutritionItem] Load',
@@ -13,6 +13,6 @@ export const loadNutritionItem = createAction(
 );
 export const loadNutritionItemSuccess = createAction(
     NutritionItemActions.loadSuccess,
-    props<{ data: NutritionItemResponse }>()
+    props<{ data: NutritionItem }>()
 );
 export const loadNutritionItemFail = createAction(NutritionItemActions.loadFail, props<{ error: any }>());

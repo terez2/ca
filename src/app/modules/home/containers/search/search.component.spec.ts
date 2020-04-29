@@ -15,6 +15,9 @@ import {SearchFormComponent} from '../../components/search-form/search-form.comp
 import {ItemDetailComponent} from '../../components/item-detail/item-detail.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {GridRowComponent} from '../../components/grid-row/grid-row.component';
+import {checkDispatchAction} from '../../../../global/test-contexts/test-helper.spec';
+import {loadNutritionItem} from '../../store/actions/nutrition-item.actions';
+import {NutritionForm} from '../../../../models/nutrition-form';
 
 describe('SearchComponent', () => {
   let componentContext: TestContainerContext<SearchComponent, NutritionItemState>;
@@ -34,5 +37,17 @@ describe('SearchComponent', () => {
 
   it('should create', () => {
     expect(componentContext.component).toBeTruthy();
+  });
+
+  it('should dispatch action - search', () => {
+    checkDispatchAction(
+        componentContext.fixture,
+        componentContext.store,
+        'search',
+        loadNutritionItem({barcode: '0'}),
+        {
+          barcode: '0'
+        } as NutritionForm
+    );
   });
 });

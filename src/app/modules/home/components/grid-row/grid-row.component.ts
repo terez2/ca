@@ -12,11 +12,11 @@ export class GridRowComponent implements OnInit {
     constructor() {
     }
 
-    getIcon(name: string): string {
-        return `assets/${name}.svg`;
+    ngOnInit() {
     }
 
-    ngOnInit() {
+    getIcon(name: string): string {
+        return `assets/${name}.svg`;
     }
 
     convertTime(hours: number): string {

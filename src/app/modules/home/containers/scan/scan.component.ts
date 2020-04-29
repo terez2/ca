@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {DeviceDetectorService} from 'ngx-device-detector';
 import {NutritionItemState} from '../../store/reducers/nutrition-item.reducer';
 import {Store} from '@ngrx/store';
@@ -6,8 +6,6 @@ import {getNutritionItemLoadingSelector, getNutritionItemSelector} from '../../s
 import {NutritionItem} from '../../../../models/nutrition-item';
 import {Observable} from 'rxjs';
 import {loadNutritionItem} from '../../store/actions/nutrition-item.actions';
-import {ActivityComponent} from '../../components/activity/activity.component';
-import {ModalController} from '@ionic/angular';
 import {BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
 import {NavigationEnd, Router} from '@angular/router';
 import {ZXingScannerComponent} from '@zxing/ngx-scanner';
@@ -54,7 +52,7 @@ export class ScanComponent implements OnInit {
     }
 
     scanSuccessOnDesktop(code: string) {
-        if (this.isDesktop) {
+        if (this.isDesktop && code) {
             this.store.dispatch(loadNutritionItem({barcode: code}));
         }
     }

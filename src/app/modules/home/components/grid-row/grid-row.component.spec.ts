@@ -23,5 +23,11 @@ describe('GridRowComponent', () => {
         expect(componentContext.component).toBeTruthy();
     });
 
+    it('getIcon should return icon.svg', () => {
+        expect(componentContext.component.getIcon('icon')).toEqual('assets/icon.svg');
+    });
 
+    it('convertTime should return ', () => {
+        expect(componentContext.component.convertTime(0.5)).toEqual('0h 30m');
+    });
 });

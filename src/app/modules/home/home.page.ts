@@ -21,7 +21,7 @@ export class HomePage implements OnDestroy, OnInit {
         const disconnectSubscription = this.network.onDisconnect().pipe(untilDestroyed(this)).subscribe(() => {
             console.log('network was disconnected :-(');
             if (this.closed) {
-                this.presentModal();
+                //this.presentModal();
             }
         });
 
@@ -43,17 +43,6 @@ export class HomePage implements OnDestroy, OnInit {
     }
 
     ngOnDestroy(): void {
-    }
-
-    async presentModal() {
-        this.modal = await this.modalController.create({
-            component: NetworkComponent
-        });
-        this.modal.onDidDismiss().then(_ => {
-            this.closed = true;
-        });
-        this.closed = false;
-        return await this.modal.present();
     }
 
     ngOnInit(): void {

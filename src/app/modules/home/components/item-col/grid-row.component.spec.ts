@@ -1,24 +1,27 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {IonicModule} from '@ionic/angular';
 
-import { GridRowComponent } from './grid-row.component';
+import {GridRowComponent} from './grid-row.component';
+import {setupComponent, TestComponentContext} from '../../../../global/test-contexts/test-component-context.spec';
+import {ReactiveFormsModule} from '@angular/forms';
 
-describe('ItemColComponent', () => {
-  let component: GridRowComponent;
-  let fixture: ComponentFixture<GridRowComponent>;
+describe('GridRowComponent', () => {
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ GridRowComponent ],
-      imports: [IonicModule.forRoot()]
-    }).compileComponents();
+    let componentContext: TestComponentContext<GridRowComponent>;
 
-    fixture = TestBed.createComponent(GridRowComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+    setupComponent();
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    beforeEach(function(this: TestComponentContext<GridRowComponent>) {
+        this.create(
+            GridRowComponent,
+            [ReactiveFormsModule, IonicModule.forRoot()],
+            [GridRowComponent]
+        );
+        componentContext = this;
+    });
+
+    it('should create', () => {
+        expect(componentContext.component).toBeTruthy();
+    });
+
+
 });

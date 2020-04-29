@@ -2,23 +2,39 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { SearchComponent } from './search.component';
+import {setupContainer, TestContainerContext} from '../../../../global/test-contexts/test-container-context.spec';
+import {ScanComponent} from '../scan/scan.component';
+import {NutritionItemState} from '../../store/reducers/nutrition-item.reducer';
+import {StoreModuleEnum} from '../../../../global/store/initial-module-states';
+import {ZXingScannerModule} from '@zxing/ngx-scanner';
+import {RouterModule} from '@angular/router';
+import {ResourceModule} from '@ngx-resource/core';
+import {CommonModule} from '@angular/common';
+import {NutritionItemComponent} from '../../components/nutrition-item/nutrition-item.component';
+import {DeviceDetectorService} from 'ngx-device-detector';
+import {BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
+import {SearchFormComponent} from '../../components/search-form/search-form.component';
+import {ItemDetailComponent} from '../../components/item-detail/item-detail.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {GridRowComponent} from '../../components/item-col/grid-row.component';
 
 describe('SearchComponent', () => {
-  let component: SearchComponent;
-  let fixture: ComponentFixture<SearchComponent>;
+  let componentContext: TestContainerContext<SearchComponent, NutritionItemState>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ SearchComponent ],
-      imports: [IonicModule.forRoot()]
-    }).compileComponents();
+  setupContainer();
 
-    fixture = TestBed.createComponent(SearchComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+  beforeEach(function(this: TestContainerContext<SearchComponent, NutritionItemState>) {
+    this.create(
+        SearchComponent,
+        [StoreModuleEnum.APPLICATION_MODULE],
+        [IonicModule.forRoot(), ZXingScannerModule, RouterModule.forRoot([]),  ResourceModule.forChild(), CommonModule, ReactiveFormsModule],
+        [SearchComponent, NutritionItemComponent, SearchFormComponent, ItemDetailComponent, GridRowComponent],
+        [DeviceDetectorService, BarcodeScanner]
+    );
+    componentContext = this;
+  });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(componentContext.component).toBeTruthy();
   });
 });

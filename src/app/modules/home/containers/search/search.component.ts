@@ -32,10 +32,6 @@ export class SearchComponent implements OnInit {
         this.item$ = this.store.select(getNutritionItemSelector);
         this.loading$ = this.store.select(getNutritionItemLoadingSelector);
         this.loaded$ = this.store.select(getNutritionItemLoadedSelector);
-        this.item$.subscribe(a => {
-            console.log('search item$ change', a);
-        });
-
     }
 
     ngOnInit() {

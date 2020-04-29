@@ -1,9 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { SearchComponent } from './search.component';
 import {setupContainer, TestContainerContext} from '../../../../global/test-contexts/test-container-context.spec';
-import {ScanComponent} from '../scan/scan.component';
 import {NutritionItemState} from '../../store/reducers/nutrition-item.reducer';
 import {StoreModuleEnum} from '../../../../global/store/initial-module-states';
 import {ZXingScannerModule} from '@zxing/ngx-scanner';
@@ -16,7 +14,7 @@ import {BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
 import {SearchFormComponent} from '../../components/search-form/search-form.component';
 import {ItemDetailComponent} from '../../components/item-detail/item-detail.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import {GridRowComponent} from '../../components/item-col/grid-row.component';
+import {GridRowComponent} from '../../components/grid-row/grid-row.component';
 
 describe('SearchComponent', () => {
   let componentContext: TestContainerContext<SearchComponent, NutritionItemState>;

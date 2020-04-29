@@ -20,7 +20,7 @@ import {ActivityComponent} from './components/activity/activity.component';
 import {Network} from '@ionic-native/network/ngx';
 import {NetworkComponent} from './components/network/network.component';
 import {ItemDetailComponent} from './components/item-detail/item-detail.component';
-import {GridRowComponent} from './components/item-col/grid-row.component';
+import {GridRowComponent} from './components/grid-row/grid-row.component';
 
 @NgModule({
     imports: [

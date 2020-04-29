@@ -3,8 +3,8 @@ import {IonicModule} from '@ionic/angular';
 
 import {ItemDetailComponent} from './item-detail.component';
 import {setupComponent, TestComponentContext} from '../../../../global/test-contexts/test-component-context.spec';
-import {GridRowComponent} from '../item-col/grid-row.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { GridRowComponent } from '../grid-row/grid-row.component';
 
 describe('ItemDetailComponent', () => {
 

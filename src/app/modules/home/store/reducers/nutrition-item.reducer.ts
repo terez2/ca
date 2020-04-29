@@ -49,6 +49,7 @@ function loadFail(state: NutritionItemState, error): NutritionItemState {
     return {
         ...state,
         loading: false,
+        loaded: true,
         item: undefined
     };
 }

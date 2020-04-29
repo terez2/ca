@@ -1,6 +1,6 @@
 import { Type } from '@angular/core';
 import { configureTestingModule } from 'src/app/global/test-contexts/test-context.spec';
-import {ApiResourceModule} from '../../api-resource.module';
+import {ApiResourceModule} from '../../modules/+core/api-resource.module';
 import { TestBed } from '@angular/core/testing';
 
 export interface TestServiceContext<Service, Resource> {

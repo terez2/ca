@@ -1,7 +1,7 @@
 import {NutritionItemEffects} from './nutrition-item.effects';
 import {setupEffect, testEffect, TestEffectContext, testFailEffect} from '../../../../global/test-contexts/test-effect-context.spec';
 import {FoodNutritionService} from '../../../../service/food-nutrition.service';
-import {ApiResourceModule} from '../../../../api-resource.module';
+import {ApiResourceModule} from '../../../+core/api-resource.module';
 import {hot} from 'jasmine-marbles';
 import {loadNutritionItem, loadNutritionItemFail, loadNutritionItemSuccess} from '../actions/nutrition-item.actions';
 import {NutritionItem} from '../../../../models/nutrition-item';

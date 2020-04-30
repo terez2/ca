@@ -17,7 +17,8 @@
 
     <app-item-detail *ngIf="item$ | async" [isDesktop]="isDesktop" [activities]="(item$ | async).activities"
                      [imgSrc]="(item$ | async).image" [name]="(item$ | async).name"
-                     [calories]="(item$ | async).calories">
+                     [calories]="(item$ | async).calories"
+                     [ingredients]="(item$ | async).ingredients">
     </app-item-detail>
 
     <ion-item lines="none" *ngIf="(loaded$ | async) && !(item$ | async)">

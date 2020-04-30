@@ -5,5 +5,6 @@ export interface NutritionItem {
     calories: number;
     name: string;
     image: string;
+    ingredients: string;
     activities: TimeSpentActivity[];
 }

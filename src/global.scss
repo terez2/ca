@@ -62,7 +62,7 @@
 }
 
 .medium {
-  color: yellow;
+  color: orangered;
 }
 
 .easy {
@@ -99,4 +99,8 @@ ion-card {
   @media (max-width: 600px) {
     margin: 5px;
   }
+}
+
+.image-item{
+  min-width: 50px;
 }

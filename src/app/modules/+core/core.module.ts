@@ -4,7 +4,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {ResourceModule} from '@ngx-resource/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppRoutingModule} from '../../app-routing/app-routing.module';
-//import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ApiResourceModule} from './api-resource.module';
 
 
@@ -16,8 +15,6 @@ import {ApiResourceModule} from './api-resource.module';
     ReactiveFormsModule,
     ApiResourceModule,
     BrowserModule,
-    //BrowserAnimationsModule,
-    //ToastrModule.forRoot(),
   ],
   declarations: [],
   exports: [BrowserModule, AppRoutingModule, ResourceModule, ReactiveFormsModule, FormsModule],

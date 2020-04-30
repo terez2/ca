@@ -4,14 +4,22 @@
             <ion-item class="display-flex">
 
                 <ion-img [src]=" imgSrc || 'assets/icon/favicon.png'"
-                         class="ion-margin padding-10">
+                         class="image-item">
                 </ion-img>
 
-                <div class="titles">
-                    <ion-card-title>{{name}}</ion-card-title>
-                    <ion-card-subtitle class="ion-margin-top">{{calories}} kcal</ion-card-subtitle>
-                    <ion-card-subtitle [class]="getClass()">{{getDifficulty()}}</ion-card-subtitle>
+                <div class="titles container-titles">
+                    <ion-card-title class="title-item">{{name}}</ion-card-title>
+
+                    <ion-card-subtitle *ngIf="getClass() === 'easy'" class="easy">{{getDifficulty()}}</ion-card-subtitle>
+                    <ion-card-subtitle *ngIf="getClass() === 'medium'" class="medium">{{getDifficulty()}}</ion-card-subtitle>
+                    <ion-card-subtitle *ngIf="getClass() === 'hard'" class="hard">{{getDifficulty()}}</ion-card-subtitle>
+
+                    <ion-card-subtitle *ngIf="calories" class="ion-margin-top">{{calories}} kcal</ion-card-subtitle>
+                    <ion-card-subtitle *ngIf="ingredients && ingredients.length > 0">
+                        {{ingredients}}
+                    </ion-card-subtitle>
                 </div>
+
             </ion-item>
         </ion-card-header>
 

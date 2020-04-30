@@ -8,7 +8,6 @@ import {
 } from '@ngx-resource/core';
 import {environment} from 'src/environments/environment';
 import {BaseResource} from './base-resource';
-import {BaseSecuredResource} from './base-secured-resource';
 import {NutritionItem} from '../models/nutrition-item';
 
 @Injectable({

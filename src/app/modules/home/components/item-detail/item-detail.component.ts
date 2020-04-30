@@ -12,6 +12,7 @@ export class ItemDetailComponent implements OnInit {
     @Input() imgSrc: string;
     @Input() calories: number;
     @Input() activities: TimeSpentActivity[];
+    @Input() ingredients: string;
 
     constructor() {
     }

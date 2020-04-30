@@ -38,8 +38,8 @@ export class SearchComponent implements OnInit {
     }
 
     search(form: NutritionForm) {
-        if (form.barcode) {
-            this.store.dispatch(loadNutritionItem({barcode: form.barcode}));
+        if (form.param) {
+            this.store.dispatch(loadNutritionItem({param: form.param}));
         }
     }
 

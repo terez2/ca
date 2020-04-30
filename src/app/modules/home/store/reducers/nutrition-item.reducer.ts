@@ -28,12 +28,6 @@ export function nutritionItemReducer(state: NutritionItemState | undefined, acti
 }
 
 function loadSuccess(state: NutritionItemState, data: NutritionItem): NutritionItemState {
-    console.log('load success', {
-        ...state,
-        item: data,
-        loading: false,
-        loaded: true,
-    });
     return {
         ...state,
         item: data,
@@ -43,9 +37,6 @@ function loadSuccess(state: NutritionItemState, data: NutritionItem): NutritionI
 }
 
 function loadFail(state: NutritionItemState, error): NutritionItemState {
-    console.log('load fail');
-    console.log(error);
-    console.log('state');
     return {
         ...state,
         loading: false,
@@ -55,7 +46,6 @@ function loadFail(state: NutritionItemState, error): NutritionItemState {
 }
 
 function load(state: NutritionItemState): NutritionItemState {
-    console.log('load', state);
     return {
         ...state,
         loading: true,
@@ -64,7 +54,5 @@ function load(state: NutritionItemState): NutritionItemState {
 
 
 export const getNutritionItem = (state: NutritionItemState) => {
-    console.log(state);
-    console.log(state.item);
     return state.item;
 };

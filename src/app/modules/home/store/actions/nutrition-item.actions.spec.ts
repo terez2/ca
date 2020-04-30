@@ -4,7 +4,7 @@ import {NutritionItem} from '../../../../models/nutrition-item';
 
 describe('Nutrition Item Actions', () => {
     describe('loadNutritionItem', () => {
-        testAction(loadNutritionItem, NutritionItemActions.load, { barcode: '0' });
+        testAction(loadNutritionItem, NutritionItemActions.load, { param: '0' });
     });
 
     describe('loadNutritionItemSuccess', () => {

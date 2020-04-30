@@ -1,5 +1,5 @@
 import {FoodNutritionService} from './food-nutrition.service';
-import {checkServiceCalls} from '../global/utils/test-service.spec';
+import {checkServiceCalls} from '../global/test-contexts/test-service.spec';
 import {setupService} from '../global/test-contexts/test-service-context.spec';
 import {FoodNutritionResource} from '../resource/food-nutrition-resource';
 

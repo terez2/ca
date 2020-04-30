@@ -1,5 +1,5 @@
 import { Type } from '@angular/core';
-import {TestServiceContext} from '../test-contexts/test-service-context.spec';
+import {TestServiceContext} from './test-service-context.spec';
 
 export interface ServiceTestModel<Service, Resource> {
   serviceMethodName: string;

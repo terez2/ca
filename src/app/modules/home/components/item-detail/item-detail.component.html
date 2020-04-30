@@ -17,10 +17,18 @@
 
 
         <ion-card-content>
-            <ion-grid>
+            <ion-grid *ngIf="isDesktop">
                 <app-grid-row [activities]="activities | slice:0:3"></app-grid-row>
                 <app-grid-row [activities]="activities | slice:3:6"></app-grid-row>
                 <app-grid-row [activities]="activities | slice:6:9"></app-grid-row>
+            </ion-grid>
+
+            <ion-grid *ngIf="!isDesktop">
+                <app-grid-row [activities]="activities | slice:0:2"></app-grid-row>
+                <app-grid-row [activities]="activities | slice:2:4"></app-grid-row>
+                <app-grid-row [activities]="activities | slice:4:6"></app-grid-row>
+                <app-grid-row [activities]="activities | slice:6:8"></app-grid-row>
+                <app-grid-row [activities]="activities | slice:8:9"></app-grid-row>
             </ion-grid>
 
         </ion-card-content>

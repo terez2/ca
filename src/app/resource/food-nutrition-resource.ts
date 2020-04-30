@@ -25,8 +25,8 @@ export class FoodNutritionResource extends BaseResource {
 
     @ResourceAction({
         method: ResourceRequestMethod.Get,
-        path: '/{!barcode}'
+        path: '/{!param}'
     })
-    getItem: IResourceMethodObservableStrict<undefined, undefined, { barcode: string }, NutritionItem>;
+    getItem: IResourceMethodObservableStrict<undefined, undefined, { param: string }, NutritionItem>;
 
 }

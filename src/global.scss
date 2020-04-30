@@ -88,4 +88,15 @@ ion-card {
   margin-bottom: 25px;
 }
 
+.wrapper {
+  justify-content: center;
+  display: flex;
+}
 
+.search {
+  margin: 15vw;
+
+  @media (max-width: 600px) {
+    margin: 5px;
+  }
+}

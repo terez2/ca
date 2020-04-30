@@ -34,6 +34,9 @@ export class SearchComponent implements OnInit {
         this.loading$ = this.store.select(getNutritionItemLoadingSelector);
         this.loaded$ = this.store.select(getNutritionItemLoadedSelector);
         this.isDesktop = this.deviceService.isDesktop();
+
+        // todo remove - only for testing
+        // this.store.dispatch(loadNutritionItem({barcode: '8594404009520'}));
     }
 
     ngOnInit() {
@@ -43,8 +46,6 @@ export class SearchComponent implements OnInit {
         if (form.barcode) {
             this.store.dispatch(loadNutritionItem({barcode: form.barcode}));
         }
-
-        // this.store.dispatch(loadNutritionItem({barcode: '8594404009520'}));
     }
 
     showScanner() {

@@ -1,21 +1,24 @@
 <form [formGroup]="form" (ngSubmit)="search.emit(form.value)">
 
-    <ion-item lines="none">
-        <ion-searchbar class="ion-no-padding ion-no-margin" color="light" type="number" formControlName="barcode" inputmode="numeric"
-                       placeholder="Put barcode here"></ion-searchbar>
-        <ion-button *ngIf="isDesktop" fill="clear" size="large" (click)="showScanner.emit()">
-            <ion-icon name="scan-outline"></ion-icon>
-        </ion-button>
-    </ion-item>
+    <div>
+        <ion-item lines="none">
+            <ion-searchbar class="ion-no-padding ion-no-margin" color="light" type="number" formControlName="barcode" inputmode="numeric"
+                           placeholder="Put barcode here"></ion-searchbar>
+            <ion-button *ngIf="isDesktop" fill="clear" size="large" (click)="showScanner.emit()">
+                <ion-icon name="scan-outline"></ion-icon>
+            </ion-button>
+        </ion-item>
 
 
-    <div class="ion-padding-top" style="text-align: center">
+        <div class="ion-padding-top" style="text-align: center">
 
-        <ion-button *ngIf="!loading" type="submit">
-            <ion-label>Search it!</ion-label>
-        </ion-button>
+            <ion-button *ngIf="!loading" type="submit">
+                <ion-label>Search it!</ion-label>
+            </ion-button>
 
-        <ion-spinner *ngIf="loading" class="center ion-padding-top" name="dots"></ion-spinner>
+            <ion-spinner *ngIf="loading" class="center ion-padding-top" name="dots"></ion-spinner>
+        </div>
     </div>
+
 
 </form>

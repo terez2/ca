@@ -2,7 +2,6 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Network} from '@ionic-native/network/ngx';
 import {untilDestroyed} from 'ngx-take-until-destroy';
 import {ModalController} from '@ionic/angular';
-import {NetworkComponent} from './components/network/network.component';
 import {DeviceDetectorService} from 'ngx-device-detector';
 
 @Component({
@@ -11,7 +10,7 @@ import {DeviceDetectorService} from 'ngx-device-detector';
     styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnDestroy, OnInit {
-
+    //todo
     modal: any;
     closed: boolean;
     isDesktop = false;

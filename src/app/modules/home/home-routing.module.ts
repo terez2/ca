@@ -17,16 +17,6 @@ const routes: Routes = [
         path: 'search',
             component: SearchComponent,
       },
-      /*{
-        path: '',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
-          }
-        ]
-      },*/
       {
         path: '',
         redirectTo: 'search',

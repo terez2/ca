@@ -49,7 +49,6 @@ export class ScanComponent implements OnInit {
         const event = fromEvent(document, 'ionBackButton');
         event.subscribe(async () => {
             this.back();
-            // todo
         });
 
     }

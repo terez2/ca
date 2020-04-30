@@ -13,7 +13,7 @@ describe('NutritionItemEffects', () => {
 
     describe('loadCatalogs', () => {
         beforeEach(function(this: TestEffectContext<NutritionItemEffects, FoodNutritionService>) {
-            this.create(hot('-a', { a: loadNutritionItem({ barcode: '0' }) }), NutritionItemEffects, FoodNutritionService, [
+            this.create(hot('-a', { a: loadNutritionItem({ param: '0' }) }), NutritionItemEffects, FoodNutritionService, [
                 ApiResourceModule
             ]);
 

@@ -1,5 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {IonicModule, IonicRouteStrategy} from '@ionic/angular';
+import {IonicModule} from '@ionic/angular';
 
 import {ScanComponent} from './scan.component';
 import {setupContainer, TestContainerContext} from '../../../../global/test-contexts/test-container-context.spec';
@@ -8,10 +7,9 @@ import {NutritionItemState} from '../../store/reducers/nutrition-item.reducer';
 import {ZXingScannerModule} from '@zxing/ngx-scanner';
 import {DeviceDetectorService} from 'ngx-device-detector';
 import {BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
-import {Router, RouteReuseStrategy, RouterModule} from '@angular/router';
+import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
 import {ResourceModule} from '@ngx-resource/core';
-import {HomeRoutingModule} from '../../home-routing.module';
 import {loadNutritionItem} from '../../store/actions/nutrition-item.actions';
 import {checkDispatchAction} from '../../../../global/test-contexts/test-helper.spec';
 
@@ -40,7 +38,7 @@ describe('ScanComponent', () => {
             componentContext.fixture,
             componentContext.store,
             'scanSuccessOnDesktop',
-            loadNutritionItem({barcode: '0'}),
+            loadNutritionItem({param: '0'}),
             '0'
         );
     });

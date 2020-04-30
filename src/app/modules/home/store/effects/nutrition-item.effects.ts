@@ -13,10 +13,8 @@ export class NutritionItemEffects {
     loadNutritionItem$ = createEffect(() =>
         this.actions$.pipe(
             ofType(loadNutritionItem),
-            switchMap(({barcode}) => {
-                console.log('effect');
-                console.log(barcode);
-                return this.nutritionService.get(barcode).pipe(
+            switchMap(({param}) => {
+                return this.nutritionService.get(param).pipe(
                     map(response => loadNutritionItemSuccess({data: response})),
                     catchError(error => {
                         return of(loadNutritionItemFail({error}));

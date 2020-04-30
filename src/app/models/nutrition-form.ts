@@ -1,3 +1,3 @@
 export interface NutritionForm {
-    barcode: string;
+    param: string;
 }

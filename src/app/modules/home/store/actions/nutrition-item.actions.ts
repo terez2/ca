@@ -9,7 +9,7 @@ export enum NutritionItemActions {
 
 export const loadNutritionItem = createAction(
     NutritionItemActions.load,
-    props<{ barcode: string }>()
+    props<{ param: string }>()
 );
 export const loadNutritionItemSuccess = createAction(
     NutritionItemActions.loadSuccess,

@@ -62,14 +62,14 @@ export class ScanComponent implements OnInit {
 
     scanSuccessOnDesktop(code: string) {
         if (this.isDesktop && code) {
-            this.store.dispatch(loadNutritionItem({barcode: code}));
+            this.store.dispatch(loadNutritionItem({param: code}));
         }
     }
 
     scanOnDevice() {
         this.barcodeScanner.scan().then(barcodeData => {
             if (barcodeData && barcodeData.text) {
-                this.store.dispatch(loadNutritionItem({barcode: barcodeData.text}));
+                this.store.dispatch(loadNutritionItem({param: barcodeData.text}));
                 this.back();
             }
         }).catch(err => {

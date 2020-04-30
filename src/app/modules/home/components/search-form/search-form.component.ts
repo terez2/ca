@@ -25,7 +25,7 @@ export class SearchFormComponent implements OnInit {
 
   private createForm() {
     this.form = this.fb.group({
-      barcode: ['']
+      param: ['']
     });
   }
 }

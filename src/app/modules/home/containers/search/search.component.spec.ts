@@ -43,9 +43,9 @@ describe('SearchComponent', () => {
         componentContext.fixture,
         componentContext.store,
         'search',
-        loadNutritionItem({barcode: '0'}),
+        loadNutritionItem({param: '0'}),
         {
-          barcode: '0'
+          param: '0'
         } as NutritionForm
     );
   });

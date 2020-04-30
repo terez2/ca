@@ -28,6 +28,6 @@ describe('GridRowComponent', () => {
     });
 
     it('convertTime should return ', () => {
-        expect(componentContext.component.convertTime(0.5)).toEqual('0h 30m');
+        expect(componentContext.component.convertTime(0.5)).toEqual('30m');
     });
 });

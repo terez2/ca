@@ -6,7 +6,6 @@ import {setupContainer, TestContainerContext} from '../../../../global/test-cont
 import {StoreModuleEnum} from '../../../../global/store/initial-module-states';
 import {NutritionItemState} from '../../store/reducers/nutrition-item.reducer';
 import {ZXingScannerModule} from '@zxing/ngx-scanner';
-import {NutritionItemComponent} from '../../components/nutrition-item/nutrition-item.component';
 import {DeviceDetectorService} from 'ngx-device-detector';
 import {BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
 import {Router, RouteReuseStrategy, RouterModule} from '@angular/router';
@@ -26,7 +25,7 @@ describe('ScanComponent', () => {
             ScanComponent,
             [StoreModuleEnum.APPLICATION_MODULE],
             [IonicModule.forRoot(), ZXingScannerModule, RouterModule.forRoot([]), ResourceModule.forChild(), CommonModule],
-            [ScanComponent, NutritionItemComponent],
+            [ScanComponent],
             [DeviceDetectorService, BarcodeScanner]
         );
         componentContext = this;

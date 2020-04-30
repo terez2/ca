@@ -8,7 +8,6 @@ import {ZXingScannerModule} from '@zxing/ngx-scanner';
 import {RouterModule} from '@angular/router';
 import {ResourceModule} from '@ngx-resource/core';
 import {CommonModule} from '@angular/common';
-import {NutritionItemComponent} from '../../components/nutrition-item/nutrition-item.component';
 import {DeviceDetectorService} from 'ngx-device-detector';
 import {BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
 import {SearchFormComponent} from '../../components/search-form/search-form.component';
@@ -29,7 +28,7 @@ describe('SearchComponent', () => {
         SearchComponent,
         [StoreModuleEnum.APPLICATION_MODULE],
         [IonicModule.forRoot(), ZXingScannerModule, RouterModule.forRoot([]),  ResourceModule.forChild(), CommonModule, ReactiveFormsModule],
-        [SearchComponent, NutritionItemComponent, SearchFormComponent, ItemDetailComponent, GridRowComponent],
+        [SearchComponent, SearchFormComponent, ItemDetailComponent, GridRowComponent],
         [DeviceDetectorService, BarcodeScanner]
     );
     componentContext = this;

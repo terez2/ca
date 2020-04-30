@@ -7,7 +7,6 @@ import {StoreModuleEnum} from '../../global/store/initial-module-states';
 import {RouterModule} from '@angular/router';
 import {ResourceModule} from '@ngx-resource/core';
 import {CommonModule} from '@angular/common';
-import {NutritionItemComponent} from './components/nutrition-item/nutrition-item.component';
 import {DeviceDetectorService} from 'ngx-device-detector';
 
 describe('HomePage', () => {
@@ -20,7 +19,7 @@ describe('HomePage', () => {
         HomePage,
         [StoreModuleEnum.APPLICATION_MODULE],
         [IonicModule.forRoot(), RouterModule.forRoot([]),  ResourceModule.forChild(), CommonModule],
-        [HomePage, NutritionItemComponent],
+        [HomePage],
         [DeviceDetectorService, Network]
     );
     componentContext = this;

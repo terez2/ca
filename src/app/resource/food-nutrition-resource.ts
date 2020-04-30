@@ -8,7 +8,6 @@ import {
 } from '@ngx-resource/core';
 import {environment} from 'src/environments/environment';
 import {BaseResource} from './base-resource';
-import {BaseSecuredResource} from './base-secured-resource';
 import {NutritionItem} from '../models/nutrition-item';
 
 @Injectable({
@@ -25,8 +24,8 @@ export class FoodNutritionResource extends BaseResource {
 
     @ResourceAction({
         method: ResourceRequestMethod.Get,
-        path: '/{!barcode}'
+        path: '/{!param}'
     })
-    getItem: IResourceMethodObservableStrict<undefined, undefined, { barcode: string }, NutritionItem>;
+    getItem: IResourceMethodObservableStrict<undefined, undefined, { param: string }, NutritionItem>;
 
 }

@@ -7,12 +7,20 @@
 </ion-header>
 
 <ion-content>
-    <ion-card-content>
-        <app-search-form (search)="search($event)" [loading]="loading$ | async" (showScanner)="showScanner()"
-                         [isDesktop]="deviceService.isDesktop()"></app-search-form>
-    </ion-card-content>
+    <div [class]="(loaded$ | async) ? '' : 'search'">
+        <ion-card-content>
+            <app-search-form (search)="search($event)" [loading]="loading$ | async" (showScanner)="showScanner()"
+                             [isDesktop]="deviceService.isDesktop()"></app-search-form>
+        </ion-card-content>
+    </div>
 
-    <app-item-detail *ngIf="item$ | async" [isDesktop]="isDesktop" [activities]="(item$ | async).activities" [imgSrc]="(item$ | async).image" [name]="(item$ | async).name" [calories]="(item$ | async).calories"></app-item-detail>
+
+    <app-item-detail *ngIf="item$ | async" [isDesktop]="isDesktop" [activities]="(item$ | async).activities"
+                     [imgSrc]="(item$ | async).image" [name]="(item$ | async).name"
+                     [calories]="(item$ | async).calories"
+                     [ingredients]="(item$ | async).ingredients">
+    </app-item-detail>
+
     <ion-item lines="none" *ngIf="(loaded$ | async) && !(item$ | async)">
         <ion-label class="ion-text-center">
             Sorry, product not found.

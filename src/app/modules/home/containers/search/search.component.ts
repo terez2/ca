@@ -30,9 +30,7 @@ export class SearchComponent implements OnInit {
         private router: Router,
         private deviceService: DeviceDetectorService
     ) {
-        this.item$ = this.store.select(getNutritionItemSelector);
-        this.loading$ = this.store.select(getNutritionItemLoadingSelector);
-        this.loaded$ = this.store.select(getNutritionItemLoadedSelector);
+        this.initSelectors();
         this.isDesktop = this.deviceService.isDesktop();
     }
 
@@ -43,11 +41,15 @@ export class SearchComponent implements OnInit {
         if (form.barcode) {
             this.store.dispatch(loadNutritionItem({barcode: form.barcode}));
         }
-
-        // this.store.dispatch(loadNutritionItem({barcode: '8594404009520'}));
     }
 
     showScanner() {
         this.router.navigate(['/home/scan']);
+    }
+
+    private initSelectors() {
+        this.item$ = this.store.select(getNutritionItemSelector);
+        this.loading$ = this.store.select(getNutritionItemLoadingSelector);
+        this.loaded$ = this.store.select(getNutritionItemLoadedSelector);
     }
 }

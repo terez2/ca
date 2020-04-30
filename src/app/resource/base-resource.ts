@@ -1,5 +1,4 @@
 import {
-  IResourceAction,
   IResourceActionInner,
   IResourceResponse,
   Resource,

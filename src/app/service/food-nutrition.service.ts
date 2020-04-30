@@ -11,8 +11,8 @@ export class FoodNutritionService {
     constructor(private nutritionResource: FoodNutritionResource) {
     }
 
-    get(barcode: string): Observable<NutritionItem> {
-        return this.nutritionResource.getItem(undefined, undefined, {barcode});
+    get(param: string): Observable<NutritionItem> {
+        return this.nutritionResource.getItem(undefined, undefined, {param});
     }
 
 

@@ -16,7 +16,6 @@ import {ZXingScannerComponent} from '@zxing/ngx-scanner';
     styleUrls: ['./scan.component.scss'],
 })
 export class ScanComponent implements OnInit {
-// todo: permissions?
 
     @ViewChild('scanner', {static: false})
     scanner: ZXingScannerComponent;

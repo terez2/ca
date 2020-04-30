@@ -1,5 +1,5 @@
-import { ActionReducerMap, createFeatureSelector } from '@ngrx/store';
-import {nutritionItemFeatureKey, nutritionItemReducer, NutritionItemState} from './nutrition-item.reducer';
+import { ActionReducerMap } from '@ngrx/store';
+import { nutritionItemReducer, NutritionItemState} from './nutrition-item.reducer';
 
 export interface CoreModuleState {
   nutritionItem: NutritionItemState;

@@ -15,10 +15,8 @@ import {nutritionItemFeatureKey} from './store/reducers/nutrition-item.reducer';
 import {reducers} from './store/reducers';
 import {effects} from './store/effects';
 import {ResourceModule} from '@ngx-resource/core';
-import {NutritionItemComponent} from './components/nutrition-item/nutrition-item.component';
 import {ActivityComponent} from './components/activity/activity.component';
 import {Network} from '@ionic-native/network/ngx';
-import {NetworkComponent} from './components/network/network.component';
 import {ItemDetailComponent} from './components/item-detail/item-detail.component';
 import {GridRowComponent} from './components/grid-row/grid-row.component';
 
@@ -39,9 +37,7 @@ import {GridRowComponent} from './components/grid-row/grid-row.component';
         ScanComponent,
         SearchComponent,
         SearchFormComponent,
-        NutritionItemComponent,
         ActivityComponent,
-        NetworkComponent,
         ItemDetailComponent,
         GridRowComponent
     ],

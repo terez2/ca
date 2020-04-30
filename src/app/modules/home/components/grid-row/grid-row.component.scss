@@ -1,9 +1,14 @@
 @media (min-width: 600px) {
-  ion-label{
+  ion-label {
     float: right;
   }
-  ion-icon{
+  ion-icon {
     float: left;
     margin: 0 30px 0 0
   }
+}
+
+.time {
+  display: flex;
+  justify-content: center;
 }

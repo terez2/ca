@@ -22,5 +22,4 @@ describe('SearchFormComponent', () => {
     expect(componentContext.component).toBeTruthy();
   });
 
-
 });

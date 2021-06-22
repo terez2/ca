@@ -10,6 +10,7 @@ import {ActivityPopoverComponent} from '../activity-popover/activity-popover.com
 })
 export class GridRowComponent implements OnInit {
     @Input() activities: TimeSpentActivity[];
+    @Input() amount: number;
 
     constructor(public popoverController: PopoverController) {}
 
@@ -31,9 +32,10 @@ export class GridRowComponent implements OnInit {
         return `assets/${name}.svg`;
     }
 
-    convertTime(hours: number): string {
-        const roundHours = Math.floor(hours);
-        const minutes = (hours - roundHours) * 60;
+    convertTime(hours: number, amount: number): string {
+        const resultHours = amount * hours;
+        const roundHours = Math.floor(resultHours);
+        const minutes = (resultHours - roundHours) * 60;
         const roundMinutes = Math.round(minutes);
         if(roundHours === 0) return `${roundMinutes}m`;
         return `${roundHours}h ${roundMinutes}m`;

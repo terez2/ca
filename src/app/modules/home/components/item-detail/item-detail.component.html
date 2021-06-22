@@ -14,7 +14,11 @@
                     <ion-card-subtitle *ngIf="getClass() === 'medium'" class="medium">{{getDifficulty()}}</ion-card-subtitle>
                     <ion-card-subtitle *ngIf="getClass() === 'hard'" class="hard">{{getDifficulty()}}</ion-card-subtitle>
 
-                    <ion-card-subtitle *ngIf="calories" class="ion-margin-top">{{calories}} kcal</ion-card-subtitle>
+                    <ion-card-subtitle *ngIf="calories" class="ion-margin-top">{{calories}} kcal x </ion-card-subtitle>
+                    <form [formGroup]="form">
+                        <ion-input type="number" formControlName="amount" min="0" step="0.5" onkeypress="return event.charCode >= 48" ></ion-input>
+                    </form>
+
                     <ion-card-subtitle *ngIf="ingredients && ingredients.length > 0">
                         {{ingredients}}
                     </ion-card-subtitle>
@@ -26,17 +30,17 @@
 
         <ion-card-content>
             <ion-grid *ngIf="isDesktop">
-                <app-grid-row [activities]="activities | slice:0:3"></app-grid-row>
-                <app-grid-row [activities]="activities | slice:3:6"></app-grid-row>
-                <app-grid-row [activities]="activities | slice:6:9"></app-grid-row>
+                <app-grid-row [activities]="activities | slice:0:3" [amount]="amount"></app-grid-row>
+                <app-grid-row [activities]="activities | slice:3:6" [amount]="amount"></app-grid-row>
+                <app-grid-row [activities]="activities | slice:6:9" [amount]="amount"></app-grid-row>
             </ion-grid>
 
             <ion-grid *ngIf="!isDesktop">
-                <app-grid-row [activities]="activities | slice:0:2"></app-grid-row>
-                <app-grid-row [activities]="activities | slice:2:4"></app-grid-row>
-                <app-grid-row [activities]="activities | slice:4:6"></app-grid-row>
-                <app-grid-row [activities]="activities | slice:6:8"></app-grid-row>
-                <app-grid-row [activities]="activities | slice:8:9"></app-grid-row>
+                <app-grid-row [activities]="activities | slice:0:2" [amount]="amount"></app-grid-row>
+                <app-grid-row [activities]="activities | slice:2:4" [amount]="amount"></app-grid-row>
+                <app-grid-row [activities]="activities | slice:4:6" [amount]="amount"></app-grid-row>
+                <app-grid-row [activities]="activities | slice:6:8" [amount]="amount"></app-grid-row>
+                <app-grid-row [activities]="activities | slice:8:9" [amount]="amount"></app-grid-row>
             </ion-grid>
 
         </ion-card-content>

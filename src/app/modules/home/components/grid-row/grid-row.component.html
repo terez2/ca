@@ -1,7 +1,7 @@
 <ion-row>
     <ion-col *ngFor="let activity of activities">
         <div class="wrapper">
-            <div>
+            <div class="content--clickable" (click)="showPopover($event, activity)">
                 <ion-icon size="large" class="margin-15" [src]="getIcon(activity.name)"></ion-icon>
                 <ion-label class="time">{{convertTime(activity.time)}}</ion-label>
             </div>

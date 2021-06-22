@@ -19,6 +19,7 @@ import {ActivityComponent} from './components/activity/activity.component';
 import {Network} from '@ionic-native/network/ngx';
 import {ItemDetailComponent} from './components/item-detail/item-detail.component';
 import {GridRowComponent} from './components/grid-row/grid-row.component';
+import {ActivityPopoverComponent} from './components/activity-popover/activity-popover.component';
 
 @NgModule({
     imports: [
@@ -38,12 +39,14 @@ import {GridRowComponent} from './components/grid-row/grid-row.component';
         SearchComponent,
         SearchFormComponent,
         ActivityComponent,
+        ActivityPopoverComponent,
         ItemDetailComponent,
-        GridRowComponent
+        GridRowComponent,
     ],
     providers: [Network],
     entryComponents: [
-        ActivityComponent
+        ActivityComponent,
+        ActivityPopoverComponent
     ]
 })
 export class HomeModule {

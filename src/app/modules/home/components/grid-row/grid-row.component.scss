@@ -12,3 +12,9 @@
   display: flex;
   justify-content: center;
 }
+
+.content {
+  &--clickable {
+    cursor: pointer;
+  }
+}

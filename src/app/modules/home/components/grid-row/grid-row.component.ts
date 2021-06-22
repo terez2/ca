@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TimeSpentActivity} from '../../../../models/time-spent-activity';
+import {PopoverController} from '@ionic/angular';
+import {ActivityPopoverComponent} from '../activity-popover/activity-popover.component';
 
 @Component({
     selector: 'app-grid-row',
@@ -9,7 +11,17 @@ import {TimeSpentActivity} from '../../../../models/time-spent-activity';
 export class GridRowComponent implements OnInit {
     @Input() activities: TimeSpentActivity[];
 
-    constructor() {
+    constructor(public popoverController: PopoverController) {}
+
+    async showPopover(event, activity: TimeSpentActivity) {
+        const popover = await this.popoverController.create({
+            component: ActivityPopoverComponent,
+            componentProps: {
+                text: activity.name
+            },
+            event
+        });
+        await popover.present();
     }
 
     ngOnInit() {

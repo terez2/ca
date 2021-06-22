@@ -17,6 +17,7 @@ import {reducers} from './modules/home/store/reducers';
 import {effects} from './modules/home/store/effects';
 import {CoreModule} from './modules/+core/core.module';
 import {SharedModule} from './modules/+shared/shared.module';
+import { Network } from '@ionic-native/network/ngx';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import {SharedModule} from './modules/+shared/shared.module';
         Camera,
         BarcodeScanner,
         Device,
+        Network,
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
     ],
     bootstrap: [AppComponent]

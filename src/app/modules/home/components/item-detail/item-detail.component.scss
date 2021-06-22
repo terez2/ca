@@ -5,3 +5,9 @@
 .title-item {
   font-size: medium;
 }
+
+.input {
+  &--xs {
+    width: 20px;
+  }
+}
